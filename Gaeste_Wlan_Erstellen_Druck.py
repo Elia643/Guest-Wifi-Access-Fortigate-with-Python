@@ -100,7 +100,7 @@ def print_label(user_id, guest_password):
     surface.write_to_png(label_image_path)
 
     # Sende den Druckauftrag an den Drucker
-    result = os.system(f"lp -d Brother_GuestWlan -o media=Custom.90x29mm -o fit-to-page {label_image_path}")
+    result = os.system(f"lp -d #DruckerName# -o media=Custom.90x29mm -o fit-to-page {label_image_path}")
     if result != 0:
         print(f"Druckauftrag fehlgeschlagen mit Fehlercode: {result}")
     else:
