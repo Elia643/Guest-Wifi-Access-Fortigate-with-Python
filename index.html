@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gäste WLAN erstellen</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-image: url('Hintergrund.png'); /* Pfad zum Hintergrundbild */
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Leicht transparenter Hintergrund */
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 350px; /* Breite des Formulars */
+            text-align: center;
+            color: black;
+        }
+        .form-container h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: black;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Gästezugriff erstellen</h1>
+        <form action="/cgi-bin/submit_form.py" method="post">
+            <input type="email" placeholder="E-Mail-Adresse" name="email" pattern="^[a-zA-Z0-9._%+-]+@bachmann\.ch$" title="Die E-Mail-Adresse muss mit @bachmann.ch enden." required>
+            <input type="text" placeholder="Kunde" name="kunde" required>
+            
+            <!-- Dropdown für Anzahl Tage -->
+            <select name="anzahl_tage" required>
+                <option value="1">1 Tag</option>
+                <option value="2">2 Tage</option>
+                <option value="3">3 Tage</option>
+                <option value="4">4 Tage</option>
+                <option value="5">5 Tage</option>
+            </select>
+            
+            <!-- Dropdown für Anzahl Logins -->
+            <select name="anzahl_logins" required>
+                <option value="1">1 Login</option>
+                <option value="2">2 Logins</option>
+                <option value="3">3 Logins</option>
+                <option value="4">4 Logins</option>
+                <option value="5">5 Logins</option>
+                <option value="6">6 Logins</option>
+                <option value="7">7 Logins</option>
+                <option value="8">8 Logins</option>
+                <option value="9">9 Logins</option>
+                <option value="10">10 Logins</option>
+            </select>
+            
+            <!-- Dropdown für Auswahl zwischen E-Mail und Druck -->
+            <select name="auswahl" required>
+                <option value="email">Per E-Mail senden</option>
+                <option value="druck">Ausdrucken</option>
+            </select>
+            
+            <input type="submit" value="Erstellen">
+        </form>
+    </div>
+</body>
+</html>
